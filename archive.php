@@ -1,6 +1,11 @@
 <?php
 
-get_header(); ?>
+get_header();
+pageBanner(array(
+        'title' => get_the_archive_title(),
+    'subtitle' => get_the_archive_description()
+));
+?>
 
     <div class="page-banner">
         <div class="page-banner__bg-image"
