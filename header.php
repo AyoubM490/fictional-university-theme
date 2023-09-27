@@ -31,7 +31,7 @@
             <div class="site-header__util">
                 <a href="#" class="btn btn--small btn--orange float-left push-right">Login</a>
                 <a href="#" class="btn btn--small btn--dark-orange float-left">Sign Up</a>
-                <span class="search-trigger js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <span class="search-trigger js-search-trigger" style="cursor: pointer;"><i class="fa fa-search" aria-hidden="true"></i></span>
             </div>
         </div>
     </div>

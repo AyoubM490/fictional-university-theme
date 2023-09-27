@@ -19,7 +19,7 @@
 }
 
 .submit-note:hover {
-  background-color: adjust-color($darkOrange, $lightness: -10%, $saturation: -20%);
+  background-color: color($darkOrange b(+10%) s(+10%));
 }
 
 .edit-note,

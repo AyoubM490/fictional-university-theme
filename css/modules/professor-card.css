@@ -21,28 +21,28 @@
 
   &__image {
     display: block;
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transition: opacity .3s ease-out, transform .3s ease-out;
   }
 
   &:hover &__image {
-    opacity: 0.8;
+    opacity: .80;
     transform: scale(1.1) rotate(4deg);
   }
 
   &__name {
     font-weight: 300;
-    font-size: 0.9rem;
+    font-size: .9rem;
     position: absolute;
     bottom: 0;
-    color: #fff;
+    color: #FFF;
     left: 0;
     right: 0;
     padding: 3px 10px;
-    background-color: adjust-color($darkOrange, $alpha: -0.15, $lightness: -9%, $saturation: -6%);
+    background-color: color($darkOrange a(85%) b(+15%) s(+20%));
   }
 
   &:hover &__name {
-    background-color: adjust-color($darkOrange, $alpha: -0.15, $lightness: -15%, $saturation: -6%);
+    background-color: color($darkOrange a(85%) b(+25%) s(+20%));
   }
 
   &__list-item {

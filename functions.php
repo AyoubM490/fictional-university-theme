@@ -1,5 +1,16 @@
 <?php
 
+require get_theme_file_path('/inc/search-route.php');
+
+
+add_action('rest_api_init', 'university_custom_rest');
+
+function university_custom_rest() {
+    register_rest_field('post', 'authorName', array(
+            'get_callback' => function () { return get_the_author(); }
+    ));
+}
+
 function pageBanner($args = null) {
     // php logic will live here
     if(@!$args['title']) {
@@ -31,17 +42,27 @@ function pageBanner($args = null) {
     </div>
 <?php }
 
-function university_files()
-{
-    wp_enqueue_script('main_university_javascript', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
-    wp_enqueue_style('university_extra_styles', get_theme_file_uri('/build/index.css'));
-    wp_enqueue_style('university_main_styles', get_theme_file_uri('/build/style-index.css'));
-    wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+function university_files() {
     wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
+    wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    wp_enqueue_style('university_extra_styles', get_theme_file_uri('/build/build.css'));
+    wp_enqueue_script('main-university-js', '/build/build.js', NULL, '1.0', true);
+
+
+
+//    wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyDin3iGCdZ7RPomFLyb2yqFERhs55dmfTI', NULL, '1.0', true);
+
+    if (str_contains($_SERVER['SERVER_NAME'], 'fictional-university.local')) {
+//        wp_enqueue_script('main-university-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
+    } else {
+//        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.af4b81f813bab1da2e62.js'), NULL, '1.0', true);
+//        wp_enqueue_script('main-university-js', get_theme_file_uri('/bundled-assets/scripts.a51bb67885ee16136064.js'), NULL, '1.0', true);
+//        wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.a51bb67885ee16136064.css'));
+    }
 }
 
-
 add_action('wp_enqueue_scripts', 'university_files');
+
 
 function university_features() {
 //    register_nav_menu('headerMenuLocation', 'Header Menu Location');
